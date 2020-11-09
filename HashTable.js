@@ -102,7 +102,13 @@ class SimpleHashTable {
 		logarithmic (it increases by a factor of  2 each time it grows).
 	*/
 	_grow() {
-		// TODO: implementation left as an exercise
+		let oldArr = this.elements;
+		this.elements = new Array(oldArr.length * 2).fill(undefined);
+		oldArr.forEach(element => {
+			if (element) {
+				this.insert(element.key, element.value);
+			}
+		})
 	}
 
 	/*
